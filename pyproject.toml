@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leaf-hunt"
+version = "0.1.0"
+description = "Offline, audio-first outdoor plant scavenger hunt"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [{ name = "leaf-hunt contributors" }]
+dependencies = [
+    # CLI entry point for hunt / identify / note / journal
+    "typer>=0.12",
+]
+
+[project.optional-dependencies]
+dev = [
+    # Unit tests for clue engine, journal, and model adapter
+    "pytest>=8.0",
+]
+
+[project.scripts]
+leaf-hunt = "leaf_hunt.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+leaf_hunt = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

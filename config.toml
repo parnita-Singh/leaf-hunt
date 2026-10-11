@@ -1,0 +1,30 @@
+# leaf-hunt — all values are local. No network is used at runtime.
+
+# Geographic band used to filter bundled seasonal plants.
+# Examples: temperate-northeast, temperate-pacific, desert-southwest
+region = "temperate-northeast"
+
+# Last spring frost (ISO date). Clue selection is days-after-frost, not calendar month.
+last_spring_frost = "2026-04-15"
+
+# Where the SQLite journal and voice notes live (created on first use).
+data_dir = "~/.leaf-hunt"
+
+[models]
+# Swap backends without changing call sites. "mock" is for tests and dry runs.
+backend = "mock"
+
+# Open-weight vision-language model served by local Ollama (name only; pulled offline).
+vlm_model = "moondream"
+
+# faster-whisper model size (weights must already be on disk).
+stt_model = "base.en"
+
+# Piper voice id (onnx + json must already be on disk).
+tts_voice = "en_US-lessac-medium"
+
+# identify() treats scores below this as "try another angle".
+low_confidence_threshold = 0.45
+
+# Loopback only. Non-local hosts are rejected at config load.
+ollama_host = "http://127.0.0.1:11434"

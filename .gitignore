@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+
+# Tests / tooling
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Local field data (journal DB, recordings)
+.leaf-hunt/
+*.sqlite
+*.sqlite3
+*.db
+
+# Model weights if someone drops them in-tree
+*.gguf
+*.onnx
+*.bin
+models/
